@@ -44,13 +44,11 @@ for index, page in enumerate(pages):
         breakPosAdded = breakPos + startPos
 
         if breakPos != -1:
-            lineToCheck = str(page[startPos: breakPosAdded].strip())
-            if lineToCheck != "":
-                lines.append(lineToCheck)
+            if str(page[startPos: breakPosAdded].strip()) != "":
+                lines.append(str(page[startPos: breakPosAdded].strip()))
         else:
-            lineToCheck = str(page[startPos:].strip())
-            if lineToCheck != "":
-                lines.append(lineToCheck)
+            if str(page[startPos:].strip()) != "":
+                lines.append(str(page[startPos:].strip()))
         
         startPos = breakPosAdded + 2
     
@@ -73,7 +71,7 @@ for page, lines in file.items():
             res = file[pageNum - 1][lineNum - 1]
 
             for char in res:
-                if char.isalpha():
+                if char.isalnum():
                     res = res.replace(char, "")
             results.append(res)
 
